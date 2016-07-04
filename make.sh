@@ -1,11 +1,17 @@
 #!/bin/bash
-############################
+##########################################
 # .make.sh
-# This script creates symlinks from the home directory
+# This script creates symlinks from $HOME
 # to dotfiles in ~/dotfiles
-############################
+##########################################
 
-########## Variables
+function pause() {
+    # wait for input
+    #
+    # usage: pause
+   echo -n "... press Enter "   
+   read -p "$*"
+}
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
@@ -15,17 +21,16 @@ olddir=~/dotfiles_old             # old dotfiles backup directory
 files="bash_aliases tmux.conf vimrc gitconfig"   
 # ================================================================
 
-##########
 
 # create $olddir if it does not already exist
 if [ ! -d "$olddir" ]; then
-      echo "Creating $olddir for backup of any existing dotfiles in ~"
+      echo "Creating $olddir for backup of any existing dotfiles in $HOME"
       mkdir -p $olddir
-      echo -e "...done\n"
+      pause
 fi
 
 # backup existing dot files  
-echo "Moving any existing dotfiles from ~ to $olddir"
+echo -e "\nMoving any existing dotfiles from $HOME to $olddir"
 for file in $files; do
     # move only regular files, not symlinks
     if [ ! -h ~/.$file ]; then
@@ -34,7 +39,7 @@ for file in $files; do
 done
 echo -e "contents of $olddir"
 ls -AlF $olddir
-echo -e "...done\n"
+pause
         
 # create symlinks to dotfiles directory
 echo "Creating symlinks in $HOME to dot files in $dir"
@@ -43,11 +48,14 @@ for file in $files; do
 done
 echo -e "symlink contents of $HOME"
 ls -AlF ~ | grep ^l
-echo -e "...done\n"
+pause
 
 # load the new features
-echo -e "source .bashrc to load new features"
+echo -e "\nsource .bashrc to load new features"
 source ~/.bashrc
+pause
+
+echo -e "\ninstall programs if missing"
 
 # install tmux if needed
 if [ ! -f /usr/bin/tmux ]; then
@@ -66,3 +74,5 @@ if [ ! -f /usr/bin/git ]; then
     sudo apt-get update
     sudo apt-get install git -y
 fi
+
+echo -e "\n... make.sh is finished"
