@@ -3,13 +3,20 @@
 # collection of useful functions
 # sourced from .bash_aliases
 
-# ----------------------------------------------------------------------
+# ======================================================================
 # ----------------------------------------------------------------------
 # Command-line copy to the clipboard
 # ==================================
 # A shortcut function that simplifies usage of xclip.
 # - Accepts input from either stdin (pipe), or params.
 # see http://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/
+
+# Strings
+# usage: pwd | cb    copy the output of pwd to the clipboard
+#        cb pwd      copy the string 'pwd' to the clipboard (quote for blanks)
+
+# Contents of files
+# usage: cbf ~/.ssh/id_rsa.pub   copy the public key to the clipboard
 
 cb() {
   local _scs_col="\e[0;32m"; local _wrn_col='\e[1;31m'; local _trn_col='\e[0;33m'
@@ -43,20 +50,15 @@ cb() {
 }
 export -f cb
 
-# usage: pwd | cb    copy the output of pwd to the clipboard
-#        cb pwd      copy the string 'pwd' to the clipboard (quote for blanks)
-
 # Copy contents of a file
-# =======================
+# -----------------------
 function cbf() { cat "$1" | cb; } 
 export -f cbf
-
-# usage: cbf ~/.ssh/id_rsa.pub   copy the public key to the clipboard
 # ----------------------------------------------------------------------
-# ----------------------------------------------------------------------
+# ======================================================================
 
 
-# ----------------------------------------------------------------------
+# ======================================================================
 # ----------------------------------------------------------------------
 # Extract many types of compressed packages
 # Credit: http://nparikh.org/notes/zshrc.txt
@@ -66,6 +68,7 @@ extract() {
   if [ -f "$1" ]; then
     case "$1" in
       *.tar.bz2)  tar -jxvf "$1"                        ;;
+      *.tar.xz)   tar -Jxvf "$1"                        ;;
       *.tar.gz)   tar -zxvf "$1"                        ;;
       *.bz2)      bunzip2 "$1"                          ;;
       *.dmg)      hdiutil mount "$1"                    ;;
@@ -86,4 +89,37 @@ extract() {
 }
 export -f extract
 # ----------------------------------------------------------------------
-# ----------------------------------------------------------------------
+# ======================================================================
+
+# ===================================================
+# ---------------------------------------------------
+function open_url {
+    # open a URL in a browser
+    #
+    # usage: open_url http://www.google.com
+    URL=$1 
+    if which xdg-open > /dev/null
+    then
+      xdg-open $URL > /dev/null
+    elif which gnome-open > /dev/null
+    then
+      gnome-open $URL > /dev/null
+    fi
+} 
+export -f open_url
+# ---------------------------------------------------
+# ===================================================
+
+
+# ===================================================
+# ---------------------------------------------------
+function pause() {
+    # wait for input
+    #
+    # usage: pause
+   echo -n "... press Enter "   
+   read -p "$*"
+}
+export -f pause
+# ---------------------------------------------------
+# ===================================================

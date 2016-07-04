@@ -37,14 +37,17 @@ ls -AlF $olddir
 echo -e "...done\n"
         
 # create symlinks to dotfiles directory
-echo "Creating symlinks to dot files in home directory"
+echo "Creating symlinks in $HOME to dot files in $dir"
 for file in $files; do
     ln -s $dir/$file ~/.$file
 done
-#find ~ -maxdepth 1 -type l -ls
 echo -e "symlink contents of $HOME"
 ls -AlF ~ | grep ^l
 echo -e "...done\n"
+
+# load the new features
+echo -e "source .bashrc to load new features"
+source ~/.bashrc
 
 # install tmux if needed
 if [ ! -f /usr/bin/tmux ]; then
