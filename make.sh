@@ -11,48 +11,55 @@ dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 
 # list of files/folders to symlink to from $HOME
-files="bash_aliases tmux.conf vimrc"   
+# ================================================================
+files="bash_aliases tmux.conf vimrc gitconfig"   
+# ================================================================
 
 ##########
 
-# create dotfiles_old in homedir
+# create $olddir if it does not already exist
 if [ ! -d "$olddir" ]; then
-	  # Control will enter here if $olddir doesn't exist.
       echo "Creating $olddir for backup of any existing dotfiles in ~"
       mkdir -p $olddir
-      echo "...done"
+      echo -e "...done\n"
 fi
 
-
-# change to the dotfiles directory
-#echo "Changing to the $dir directory"
-#cd $dir
-#echo "...done"
-
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+# backup existing dot files  
 echo "Moving any existing dotfiles from ~ to $olddir"
 for file in $files; do
-    mv ~/.$file $olddir/
+    # move only regular files, not symlinks
+    if [ ! -h ~/.$file ]; then
+        mv ~/.$file $olddir/
+    fi
 done
+echo -e "contents of $olddir"
 ls -AlF $olddir
-echo "...done"
+echo -e "...done\n"
         
+# create symlinks to dotfiles directory
 echo "Creating symlinks to dot files in home directory"
 for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 #find ~ -maxdepth 1 -type l -ls
+echo -e "symlink contents of $HOME"
 ls -AlF ~ | grep ^l
-echo "...done"
+echo -e "...done\n"
 
-# install tmux if it isn't already
+# install tmux if needed
 if [ ! -f /usr/bin/tmux ]; then
     sudo apt-get update
     sudo apt-get install tmux -y
 fi
 
-# install vim if it isn't already
+# install vim if needed
 if [ ! -f /usr/bin/vim ]; then
     sudo apt-get update
     sudo apt-get install vim -y
+fi
+
+# install git if needed
+if [ ! -f /usr/bin/git ]; then
+    sudo apt-get update
+    sudo apt-get install git -y
 fi

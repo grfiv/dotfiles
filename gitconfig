@@ -1,0 +1,11 @@
+[user]
+	email = george@georgefisher.com
+	name = George Fisher
+[push]
+	default = simple
+[merge]
+	conflictstyle = diff3
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
