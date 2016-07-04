@@ -44,7 +44,7 @@ cb() {
 export -f cb
 
 # usage: pwd | cb    copy the output of pwd to the clipboard
-#        cb pwd      copy pwd itself to the clipboard (quote for blanks)
+#        cb pwd      copy the string 'pwd' to the clipboard (quote for blanks)
 
 # Copy contents of a file
 # =======================
@@ -58,7 +58,7 @@ export -f cbf
 
 # ----------------------------------------------------------------------
 # ----------------------------------------------------------------------
-# Extra many types of compressed packages
+# Extract many types of compressed packages
 # Credit: http://nparikh.org/notes/zshrc.txt
 # NOTE: there exists an extract: apt-cache show extract
 
