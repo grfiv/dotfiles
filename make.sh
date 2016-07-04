@@ -1,6 +1,6 @@
 #!/bin/bash
 ##########################################
-# .make.sh
+# make.sh
 # This script creates symlinks from $HOME
 # to dotfiles in ~/dotfiles
 ##########################################
