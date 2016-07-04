@@ -42,7 +42,7 @@ ls -AlF $olddir
 pause
         
 # create symlinks to dotfiles directory
-echo "Creating symlinks in $HOME to dot files in $dir"
+echo -e "\nCreating symlinks in $HOME to dot files in $dir"
 for file in $files; do
     ln -s $dir/$file ~/.$file
 done
