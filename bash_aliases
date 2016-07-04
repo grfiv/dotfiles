@@ -72,5 +72,5 @@ xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Finger" 50 80 257
 # Brown       0;33     Yellow        1;33
 # Light Gray  0;37     White         1;37
 #export PS1_ORIGINAL=$PS1
-#export PS1=$(echo $PS1_ORIGINAL | sed -e 's/01;32/01;33/g') 
+#export PS1=$(echo $PS1_ORIGINAL | sed -e 's/01;32/01;33/g')" " 
 
