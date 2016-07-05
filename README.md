@@ -19,6 +19,7 @@ git clone git@github.com:grfiv/dotfiles.git
 curl -LOk https://github.com/grfiv/dotfiles/archive/master.zip
 unzip master.zip
 mv dotfiles-master dotfiles
+rm master.zip
 
 cd dotfiles
 chmod +x make.sh
