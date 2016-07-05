@@ -10,8 +10,16 @@ Run *./make.sh* to back up any existing of the list of dot files to be installed
 
 
 ```bash   
-cd ~
+
+cd ~    # move to your home directory
+
+--either--
 git clone git@github.com:grfiv/dotfiles.git
+--or--
+curl -LOk https://github.com/grfiv/dotfiles/archive/master.zip
+unzip master.zip
+mv dotfiles-master dotfiles
+
 cd dotfiles
 chmod +x make.sh
 ./make.sh
