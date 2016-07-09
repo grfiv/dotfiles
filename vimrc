@@ -113,3 +113,5 @@ packadd matchit
 "
 " Include line numbers
 set number
+" Ctrl-N to switch between line numbering
+nmap <C-N> :set invnumber<CR>
