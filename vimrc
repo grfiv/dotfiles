@@ -115,3 +115,7 @@ packadd matchit
 set number
 " Ctrl-N to switch between line numbering
 nmap <C-N> :set invnumber<CR>
+" auto indent: new line starts at beginning of line above
+set ai showmode
+" tab==4 spaces and is converted to spaces
+set ts=4 expandtab
