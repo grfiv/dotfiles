@@ -66,7 +66,7 @@ fi
 # install vim if needed
 if [ ! -f /usr/bin/vim ]; then
     sudo apt-get update
-    sudo apt-get install vim -y
+    sudo apt-get install -y vim-gnome vim-gnome-py2 vim-doc
 fi
 
 # install git if needed

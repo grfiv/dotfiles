@@ -109,4 +109,7 @@ endif
 packadd matchit
 
 " GRFIV additions
+" ===============
+"
+" Include line numbers
 set number

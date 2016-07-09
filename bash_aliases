@@ -51,6 +51,9 @@ alias ticker='mop'  # note: there is a program called ticker which you may need 
 alias vi='vim'
 export MYVIMRC=~/.vimrc
 
+# Swap Caps Lock and Esc for easier vim usage
+# /usr/bin/setxkbmap -option "caps:swapescape"
+
 # improve the ls command to provide color and append the file type
 alias ls='ls --color=auto -F'
 alias ll='ls -alFh'            # make ll human readable
@@ -71,6 +74,14 @@ xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Finger" 50 80 257
 # Purple      0;35     Light Purple  1;35
 # Brown       0;33     Yellow        1;33
 # Light Gray  0;37     White         1;37
-#export PS1_ORIGINAL=$PS1
+
+export PS1_ORIGINAL=$PS1
+
+# For Ubuntu Desktop 16.04: red command prompt
 #export PS1=$(echo $PS1_ORIGINAL | sed -e 's/01;32/01;33/g')" " 
 
+# For Centos 7: red command prompt
+#export PS1="\e[0:31m$(echo $PS1)\e[m "
+
+# Set terminal background to white and letters to black
+# setterm -background white -foreground black -store
