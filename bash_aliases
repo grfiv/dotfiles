@@ -1,3 +1,17 @@
+function addToPATH {
+    #
+    # add to $PATH environment variable, 
+    # ensuring no duplications
+    #
+    # usage: addToPATH ~/.local/lib/npm/bin
+    #
+  case ":$PATH:" in
+    *":$1:"*) :;;         # already there
+    *) PATH="$1:$PATH";;  # or PATH="$PATH:$1"
+  esac
+}
+
+
 # for python
 # ----------
 #export PYTHONSTARTUP=/home/george/Dropbox/Python/python_startup.py

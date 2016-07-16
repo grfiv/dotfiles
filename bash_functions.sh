@@ -123,3 +123,53 @@ function pause() {
 export -f pause
 # ---------------------------------------------------
 # ===================================================
+
+
+# ===================================================
+# ---------------------------------------------------
+function man2pdf {
+    # convert a man page to a pdf file
+    #
+    # usage: man2pdf ls
+    #        creates a file ls.pdf
+    #
+    # lpstat -p # lists all the available printers
+    #
+    # lpr -P <printer name> <file name> # prints a file
+    #
+    man -t $1 | ps2pdf - $1.pdf
+}
+export -f man2pdf
+# ---------------------------------------------------
+# ===================================================
+
+
+# ===================================================
+# ---------------------------------------------------
+function display_timebar {
+    
+    # display an extending bar each 0.5 seconds for $1 seconds
+    #    if $2 is provided it will be echoed prior to the bar being displayed
+    #
+    # credit: https://stackoverflow.com/questions/12498304/
+    #               using-bash-to-display-a-progress-working-indicator
+    #
+    # usage: display_timebar 10 "wait 10 seconds"
+    
+    if [ ! -z "$2" ]; then
+        echo $2
+    fi
+    count=0
+    total=$(( 2 * $1 ))
+    pstr="[=======================================================================]"
+
+    while [ $count -lt $total ]; do
+      sleep 0.5 # this is work
+      count=$(( $count + 1 ))
+      pd=$(( $count * 73 / $total ))
+      printf "\r%3d.%1d%% %.${pd}s" $(( $count * 100 / $total )) $(( ($count * 1000 / $total) % 10 )) $pstr
+    done
+}
+export -f display_timebar
+# ---------------------------------------------------
+# ===================================================
