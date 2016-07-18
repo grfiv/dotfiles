@@ -62,8 +62,12 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 alias ticker='mop'  # note: there is a program called ticker which you may need someday
 
 # vim is better than vi
+# =====================
 alias vi='vim'
 export MYVIMRC=~/.vimrc
+# Swap CapsLock and Esc
+/usr/bin/setxkbmap -option "caps:swapescape"
+
 
 # Swap Caps Lock and Esc for easier vim usage
 # /usr/bin/setxkbmap -option "caps:swapescape"
