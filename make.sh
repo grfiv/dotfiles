@@ -57,10 +57,27 @@ pause
 
 echo -e "\ninstall programs if missing"
 
+# what type of system are we running on?
+python -mplatform | grep -qi ubuntu;ubuntu=$?
+python -mplatform | grep -qi centos;centos=$?
+
+
 # install tmux if needed
 if [ ! -f /usr/bin/tmux ]; then
-    sudo apt-get update
-    sudo apt-get install tmux -y
+
+    if [[ $ubuntu -eq 0 ]]
+    then
+        sudo apt-get update
+        sudo apt-get install tmux -y
+        
+    elif [[ $centos -eq 0 ]]
+    then
+        sudo yum update
+        sudo yum install tmux -y
+        
+    else
+        echo "neither ubuntu nor centos system identified"
+    fi
 fi
 
 # install vim if needed
