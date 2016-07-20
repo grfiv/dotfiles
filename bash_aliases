@@ -49,7 +49,9 @@ else
 fi
 # ===========================================================
 
-export PATH="/usr/lib/ccache:$PATH"
+#export PATH="/usr/lib/ccache:$PATH"
+addToPATH /usr/lib/ccache
+export PATH
 
 # AWS cli configurations
 export AWS_CONFIG_FILE=$HOME/.aws/config
@@ -67,10 +69,6 @@ alias vi='vim'
 export MYVIMRC=~/.vimrc
 # Swap CapsLock and Esc
 /usr/bin/setxkbmap -option "caps:swapescape"
-
-
-# Swap Caps Lock and Esc for easier vim usage
-# /usr/bin/setxkbmap -option "caps:swapescape"
 
 # improve the ls command to provide color and append the file type
 alias ls='ls --color=auto -F'

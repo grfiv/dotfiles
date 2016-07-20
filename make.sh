@@ -80,16 +80,58 @@ if [ ! -f /usr/bin/tmux ]; then
     fi
 fi
 
+# install setxkbmap if needed
+if [ ! -f /usr/bin/setxkbmap ]; then
+
+    if [[ $ubuntu -eq 0 ]]
+    then
+        sudo apt-get update
+        sudo apt-get install x11-xkb-utils -y
+        
+    elif [[ $centos -eq 0 ]]
+    then
+        sudo yum update
+        sudo yum install xorg-x11-xkb-utils -y
+        
+    else
+        echo "neither ubuntu nor centos system identified"
+    fi
+fi
+
 # install vim if needed
 if [ ! -f /usr/bin/vim ]; then
-    sudo apt-get update
-    sudo apt-get install -y vim-gnome vim-gnome-py2 vim-doc
+    
+    if [[ $ubuntu -eq 0 ]]
+    then
+        sudo apt-get update
+        sudo apt-get install -y vim-gnome vim-gnome-py2 vim-doc
+        
+    elif [[ $centos -eq 0 ]]
+    then
+        sudo yum update
+        sudo yum install vim -y
+        
+    else
+        echo "neither ubuntu nor centos system identified"
+    fi
 fi
 
 # install git if needed
 if [ ! -f /usr/bin/git ]; then
-    sudo apt-get update
-    sudo apt-get install git -y
+    
+    if [[ $ubuntu -eq 0 ]]
+    then
+        sudo apt-get update
+        sudo apt-get install git -y
+        
+    elif [[ $centos -eq 0 ]]
+    then
+        sudo yum update
+        sudo yum install git -y
+        
+    else
+        echo "neither ubuntu nor centos system identified"
+    fi
 fi
 
 echo -e "\n... make.sh is finished"
