@@ -44,8 +44,8 @@ if [ -d "$DOTDIR" ]; then
   else
      echo -e "\n$FUNCFILE not found\n"
   fi
-else
-  echo -e "\n$DOTDIR not found\n"
+#else
+  #echo -e "\n$DOTDIR not found\n"
 fi
 # ===========================================================
 
@@ -101,6 +101,14 @@ xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Finger" 50 80 257
 # Light Gray  0;37     White         1;37
 
 export PS1_ORIGINAL=$PS1
+
+# Ubuntu 14.04
+# Green
+export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# Yellow
+#export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# Red
+#export PS1='${debian_chroot:+($debian_chroot)}\[\033[00;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # For Ubuntu Desktop 16.04: yellow command prompt
 #export PS1=$(echo $PS1_ORIGINAL | sed -e 's/01;32/01;33/g')" " 
