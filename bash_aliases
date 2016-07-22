@@ -68,13 +68,22 @@ alias ticker='mop'  # note: there is a program called ticker which you may need 
 alias vi='vim'
 export MYVIMRC=~/.vimrc
 # Swap CapsLock and Esc
+# =====================
 /usr/bin/setxkbmap -option "caps:swapescape"
+#
+# For console-only servers
+#
+#sudo vi /etc/default/keyboard
+#    XKBOPTIONS="caps:swapescape"
+#sudo dpkg-reconfigure keyboard-configuration
 
 # improve the ls command to provide color and append the file type
+# ================================================================
 alias ls='ls --color=auto -F'
 alias ll='ls -alFh'            # make ll human readable
 
 # reduce sensitivity of a Synaptics touchpad
+# ==========================================
 # see https://help.ubuntu.com/community/SynapticsTouchpad
 # and http://www.mepis.org/docs/en/index.php?title=Configuring_the_touchpad_with_xinput
 xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Noise Cancellation" 20 20
@@ -93,7 +102,7 @@ xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Finger" 50 80 257
 
 export PS1_ORIGINAL=$PS1
 
-# For Ubuntu Desktop 16.04: red command prompt
+# For Ubuntu Desktop 16.04: yellow command prompt
 #export PS1=$(echo $PS1_ORIGINAL | sed -e 's/01;32/01;33/g')" " 
 
 # For Centos 7: red command prompt

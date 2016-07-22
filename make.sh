@@ -23,6 +23,7 @@ files="bash_aliases tmux.conf vimrc gitconfig"
 
 
 # create $olddir if it does not already exist
+# ===========================================
 if [ ! -d "$olddir" ]; then
       echo "Creating $olddir for backup of any existing dotfiles in $HOME"
       mkdir -p $olddir
@@ -30,6 +31,7 @@ if [ ! -d "$olddir" ]; then
 fi
 
 # backup existing dot files  
+# =========================
 echo -e "\nMoving any existing dotfiles from $HOME to $olddir"
 for file in $files; do
     # move only regular files, not symlinks
@@ -42,6 +44,7 @@ ls -AlF $olddir
 pause
         
 # create symlinks to dotfiles directory
+# =====================================
 echo -e "\nCreating symlinks in $HOME to dot files in $dir"
 for file in $files; do
     ln -s $dir/$file ~/.$file
@@ -64,6 +67,8 @@ python -mplatform | grep -qi centos;centos=$?
 
 # install tmux if needed
 if [ ! -f /usr/bin/tmux ]; then
+    echo -e "\nInstall tmux"
+    echo -e "##################################"
 
     if [[ $ubuntu -eq 0 ]]
     then
@@ -81,25 +86,27 @@ if [ ! -f /usr/bin/tmux ]; then
 fi
 
 # install setxkbmap if needed
-if [ ! -f /usr/bin/setxkbmap ]; then
-
-    if [[ $ubuntu -eq 0 ]]
-    then
-        sudo apt-get update
-        sudo apt-get install x11-xkb-utils -y
-        
-    elif [[ $centos -eq 0 ]]
-    then
-        sudo yum update
-        sudo yum install xorg-x11-xkb-utils -y
-        
-    else
-        echo "neither ubuntu nor centos system identified"
-    fi
-fi
+#if [ ! -f /usr/bin/setxkbmap ]; then
+#
+#    if [[ $ubuntu -eq 0 ]]
+#    then
+#        sudo apt-get update
+#        sudo apt-get install x11-xkb-utils -y
+#        
+#    elif [[ $centos -eq 0 ]]
+#    then
+#        sudo yum update
+#        sudo yum install xorg-x11-xkb-utils -y
+#        
+#    else
+#        echo "neither ubuntu nor centos system identified"
+#    fi
+#fi
 
 # install vim if needed
 if [ ! -f /usr/bin/vim ]; then
+    echo -e "\nInstall vim"
+    echo -e "##################################"
     
     if [[ $ubuntu -eq 0 ]]
     then
@@ -109,7 +116,7 @@ if [ ! -f /usr/bin/vim ]; then
     elif [[ $centos -eq 0 ]]
     then
         sudo yum update
-        sudo yum install vim -y
+        sudo yum install vim-enhanced -y
         
     else
         echo "neither ubuntu nor centos system identified"
@@ -118,6 +125,8 @@ fi
 
 # install git if needed
 if [ ! -f /usr/bin/git ]; then
+    echo -e "\nInstall git"
+    echo -e "##################################"
     
     if [[ $ubuntu -eq 0 ]]
     then
