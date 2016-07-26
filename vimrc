@@ -27,9 +27,10 @@ else
   set backup		" keep a backup file (restore to previous version)
   set undofile		" keep an undo file (undo changes after closing)
 endif
+
 set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
+set ruler   		" show the cursor position all the time
+set showcmd	    	" display incomplete commands
 set incsearch		" do incremental searching
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
@@ -119,3 +120,5 @@ nmap <C-N> :set invnumber<CR>
 set ai showmode
 " tab==4 spaces and is converted to spaces
 set ts=4 expandtab softtabstop=4    
+
+set encoding=utf-8

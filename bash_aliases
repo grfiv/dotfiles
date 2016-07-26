@@ -82,6 +82,10 @@ export MYVIMRC=~/.vimrc
 alias ls='ls --color=auto -F'
 alias ll='ls -alFh'            # make ll human readable
 
+# more lsblk info
+alias lsblk="lsblk -o NAME,MAJ:MIN,RM,SIZE,RO,TYPE,MOUNTPOINT,FSTYPE"
+
+
 # reduce sensitivity of a Synaptics touchpad
 # ==========================================
 # see https://help.ubuntu.com/community/SynapticsTouchpad
@@ -109,6 +113,8 @@ export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\
 #export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 # Red
 #export PS1='${debian_chroot:+($debian_chroot)}\[\033[00;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# Light Blue
+#export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # For Ubuntu Desktop 16.04: yellow command prompt
 #export PS1=$(echo $PS1_ORIGINAL | sed -e 's/01;32/01;33/g')" " 
