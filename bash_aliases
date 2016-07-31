@@ -83,7 +83,7 @@ alias ls='ls --color=auto -F'
 alias ll='ls -alFh'            # make ll human readable
 
 # more lsblk info
-alias lsblk="lsblk -o NAME,MAJ:MIN,RM,SIZE,RO,TYPE,MOUNTPOINT,FSTYPE"
+alias lsblk="lsblk -o NAME,MAJ:MIN,SIZE,TYPE,MOUNTPOINT,FSTYPE"
 
 
 # reduce sensitivity of a Synaptics touchpad
