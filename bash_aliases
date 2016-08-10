@@ -67,6 +67,7 @@ alias ticker='mop'  # note: there is a program called ticker which you may need 
 # =====================
 alias vi='vim'
 export MYVIMRC=~/.vimrc
+export EDITOR="vi"
 # Swap CapsLock and Esc
 # =====================
 /usr/bin/setxkbmap -option "caps:swapescape"
@@ -81,9 +82,6 @@ export MYVIMRC=~/.vimrc
 # ================================================================
 alias ls='ls --color=auto -F'
 alias ll='ls -alFh'            # make ll human readable
-
-# more lsblk info
-alias lsblk="lsblk -o NAME,MAJ:MIN,SIZE,TYPE,MOUNTPOINT,FSTYPE"
 
 
 # reduce sensitivity of a Synaptics touchpad
