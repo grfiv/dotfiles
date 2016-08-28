@@ -67,7 +67,8 @@ alias ticker='mop'  # note: there is a program called ticker which you may need 
 # =====================
 alias vi='vim'
 export MYVIMRC=~/.vimrc
-export EDITOR="vi"
+export VISUAL=vi
+export EDITOR="$VISUAL"
 # Swap CapsLock and Esc
 # =====================
 /usr/bin/setxkbmap -option "caps:swapescape"
