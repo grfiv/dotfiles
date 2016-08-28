@@ -45,15 +45,21 @@ pause
         
 # create symlinks to dotfiles directory
 # =====================================
-echo -e "\nCreating symlinks in $HOME to dot files in $dir"
+echo -e "\nCreating symlinks in $HOME & /root to dot files in $dir"
 for file in $files; do
     ln -s $dir/$file ~/.$file
+    sudo ln -s $dir/$file /root/.$file
 done
-echo -e "symlink contents of $HOME"
+echo -e "\nsymlink contents of $HOME"
 ls -AlF ~ | grep ^l
 pause
 
+echo -e "\nsymlink contents of /root"
+sudo ls -AlF /root | grep ^l
+pause
+
 # load the new features
+# =====================
 echo -e "\nsource .bashrc to load new features"
 source ~/.bashrc
 pause
