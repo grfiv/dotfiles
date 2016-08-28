@@ -122,3 +122,6 @@ set ai showmode
 set ts=4 expandtab softtabstop=4    
 
 set encoding=utf-8
+
+" create a 2-line status line at the bottom
+set laststatus=2

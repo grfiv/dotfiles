@@ -63,8 +63,8 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 alias ticker='mop'  # note: there is a program called ticker which you may need someday
 
-# vim is better than vi
-# =====================
+# vim is better than vi is better than nano
+# =========================================
 alias vi='vim'
 export MYVIMRC=~/.vimrc
 export VISUAL=vi
