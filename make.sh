@@ -18,7 +18,7 @@ olddir=~/dotfiles_old             # old dotfiles backup directory
 
 # list of files/folders to symlink to from $HOME
 # ================================================================
-files="bash_aliases tmux.conf vimrc gitconfig"   
+files="bash_aliases tmux.conf vimrc gitconfig bash_functions.sh"   
 # ================================================================
 
 

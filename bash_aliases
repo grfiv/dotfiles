@@ -35,17 +35,8 @@ export MNIST=/home/george/Dropbox/MNIST/data
 # ===========================================================
 # load in a collection of useful functions from the dot files
 # ===========================================================
-DOTDIR=~/dotfiles
-FUNCFILE=$DOTDIR/bash_functions.sh
-
-if [ -d "$DOTDIR" ]; then
-  if [ -f "$FUNCFILE" ]; then
-    source $FUNCFILE
-  else
-     echo -e "\n$FUNCFILE not found\n"
-  fi
-#else
-  #echo -e "\n$DOTDIR not found\n"
+if [ -h .bash_functions.sh ]; then
+    source .bash_functions.sh
 fi
 # ===========================================================
 
