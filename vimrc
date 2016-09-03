@@ -128,3 +128,6 @@ set encoding=utf-8
 
 " create a 2-line status line at the bottom
 set laststatus=2
+
+" draw a line under the current position
+set cursorline

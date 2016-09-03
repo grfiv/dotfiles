@@ -11,3 +11,5 @@
 	required = true
 [color]
 	ui = auto
+[gui]
+	recentrepo = /home/george/dotfiles
