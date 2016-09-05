@@ -91,24 +91,6 @@ if [ ! -f /usr/bin/tmux ]; then
     fi
 fi
 
-# install setxkbmap if needed
-#if [ ! -f /usr/bin/setxkbmap ]; then
-#
-#    if [[ $ubuntu -eq 0 ]]
-#    then
-#        sudo apt-get update
-#        sudo apt-get install x11-xkb-utils -y
-#        
-#    elif [[ $centos -eq 0 ]]
-#    then
-#        sudo yum update
-#        sudo yum install xorg-x11-xkb-utils -y
-#        
-#    else
-#        echo "neither ubuntu nor centos system identified"
-#    fi
-#fi
-
 # install vim if needed
 if [ ! -f /usr/bin/vim ]; then
     echo -e "\nInstall vim"
