@@ -17,15 +17,6 @@ function addToPATH {
 #export PYTHONSTARTUP=/home/george/Dropbox/Python/python_startup.py
 export PYTHONPATH=$PYTHONPATH:/home/george/Dropbox/Python
 
-# for nvcc
-# --------
-#PATH=$PATH:/usr/bin
-
-# for maven (note the release, obviously this may change)
-# ---------
-#PATH=$PATH:/usr/local/apache-maven/apache-maven-3.3.3/bin
-#export MAVEN_OPTS="-Xms256m -Xmx512m"
-
 # for the MNIST handwritten digits
 export MNIST=/home/george/Dropbox/MNIST/data
 
