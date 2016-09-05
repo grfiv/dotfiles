@@ -86,7 +86,7 @@ xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Finger" 50 80 257
 # Light Gray  0;37     White         1;37
 
 # the tput command is designed for managing terminal
-# colors, and other things but it is squirrelly at best
+# colors and other things but it is squirrelly at best
 # see https://linuxtidbits.wordpress.com/2008/08/11/output-color-on-bash-scripts/
 
 # tput colors
@@ -100,14 +100,14 @@ xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Finger" 50 80 257
 # 6 - Cyan
 # 7 - White
 
-# $(tput bold)$(tput setaf 2) produces a dark green 
+# $(tput setaf 2)             produces a light green 
+# $(tput bold)$(tput setaf 2) produces a bright green 
 
 export PS1_ORIGINAL=$PS1
 
-# Ubuntu 14.04
-# Dark Green
-DarkGreen=$(tput bold)$(tput setaf 2)
-export PS1='${debian_chroot:+($debian_chroot)}\[$DarkGreen\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# Bright Green
+BrightGreen=$(tput bold)$(tput setaf 2)
+export PS1='${debian_chroot:+($debian_chroot)}\[$BrightGreen\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # Yellow
 #export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
