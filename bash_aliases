@@ -124,3 +124,7 @@ export PS1='${debian_chroot:+($debian_chroot)}\[$BrightGreen\]\u@\h\[\033[00m\]:
 
 # Set terminal background to white and letters to black
 # setterm -background white -foreground black -store
+
+# Set cli terminal title to user@dir pws
+export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+
