@@ -9,7 +9,7 @@ function pause() {
     # wait for input
     #
     # usage: pause
-   echo -n "... press Enter "   
+   echo -n "... press Enter "
    read -p "$*"
 }
 
@@ -17,9 +17,9 @@ dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 
 # list of files/folders to symlink to from $HOME
-# ================================================================
-files="bash_aliases tmux.conf vimrc gitconfig bash_functions.sh"   
-# ================================================================
+# ===============================================================================
+files="bash_aliases tmux.conf vimrc gitconfig bash_functions.sh gitignore_global"
+# ===============================================================================
 
 
 # create $olddir if it does not already exist
@@ -30,7 +30,7 @@ if [ ! -d "$olddir" ]; then
       pause
 fi
 
-# backup existing dot files  
+# backup existing dot files
 # =========================
 echo -e "\nMoving any existing dotfiles from $HOME to $olddir"
 for file in $files; do
@@ -42,7 +42,13 @@ done
 echo -e "contents of $olddir"
 ls -AlF $olddir
 pause
-        
+
+
+# change the gitconfig file to reflect current $HOME
+# ==================================================
+sed -i "s#.*excludesfile.*#\texcludesfile = $HOME/.gitignore_global#"  ~/dotfiles/gitconfig
+
+
 # create symlinks to dotfiles directory
 # =====================================
 echo -e "\nCreating symlinks in $HOME & /root to dot files in $dir"
@@ -80,12 +86,12 @@ if [ ! -f /usr/bin/tmux ]; then
     then
         sudo apt-get update
         sudo apt-get install tmux -y
-        
+
     elif [[ $centos -eq 0 ]]
     then
         sudo yum update
         sudo yum install tmux -y
-        
+
     else
         echo "neither ubuntu nor centos system identified"
     fi
@@ -95,17 +101,17 @@ fi
 if [ ! -f /usr/bin/vim ]; then
     echo -e "\nInstall vim"
     echo -e "##################################"
-    
+
     if [[ $ubuntu -eq 0 ]]
     then
         sudo apt-get update
         sudo apt-get install -y vim-gnome vim-gnome-py2 vim-doc
-        
+
     elif [[ $centos -eq 0 ]]
     then
         sudo yum update
         sudo yum install vim-enhanced -y
-        
+
     else
         echo "neither ubuntu nor centos system identified"
     fi
@@ -115,17 +121,17 @@ fi
 if [ ! -f /usr/bin/git ]; then
     echo -e "\nInstall git"
     echo -e "##################################"
-    
+
     if [[ $ubuntu -eq 0 ]]
     then
         sudo apt-get update
         sudo apt-get install git -y
-        
+
     elif [[ $centos -eq 0 ]]
     then
         sudo yum update
         sudo yum install git -y
-        
+
     else
         echo "neither ubuntu nor centos system identified"
     fi

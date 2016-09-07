@@ -13,3 +13,10 @@
 	ui = auto
 [gui]
 	recentrepo = /home/george/dotfiles
+[log]
+	decorate = true
+[core]
+	excludesfile = /home/george/.gitignore_global
+	autocrlf = input
+[alias]
+	lol = log --oneline --graph --decorate
