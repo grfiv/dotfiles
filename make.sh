@@ -117,24 +117,4 @@ if [ ! -f /usr/bin/vim ]; then
     fi
 fi
 
-# install git if needed
-if [ ! -f /usr/bin/git ]; then
-    echo -e "\nInstall git"
-    echo -e "##################################"
-
-    if [[ $ubuntu -eq 0 ]]
-    then
-        sudo apt-get update
-        sudo apt-get install git -y
-
-    elif [[ $centos -eq 0 ]]
-    then
-        sudo yum update
-        sudo yum install git -y
-
-    else
-        echo "neither ubuntu nor centos system identified"
-    fi
-fi
-
 echo -e "\n... make.sh is finished"
