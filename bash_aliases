@@ -45,6 +45,14 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 alias ticker='mop'  # note: there is a program called ticker which you may need someday
 
+# improve the ls command to provide color and append the file type
+# ================================================================
+alias ls='ls --color=auto -F'
+alias ll='ls -alFh'            # make ll human readable
+
+# open image files from the command line with 'image xxx.png'
+alias image=eog
+
 # vim is better than vi is better than nano
 # =========================================
 alias vi='vim'
@@ -60,12 +68,6 @@ export EDITOR="$VISUAL"
 #sudo vi /etc/default/keyboard
 #    XKBOPTIONS="caps:swapescape"
 #sudo dpkg-reconfigure keyboard-configuration
-
-# improve the ls command to provide color and append the file type
-# ================================================================
-alias ls='ls --color=auto -F'
-alias ll='ls -alFh'            # make ll human readable
-
 
 # reduce sensitivity of a Synaptics touchpad
 # ==========================================
