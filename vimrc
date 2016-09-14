@@ -132,5 +132,6 @@ set laststatus=2
 " draw a line under the current position
 set cursorline
 
-" switch off automatic creation of backup files
+" switch off automatic creation of ~ backup files
 set nobackup
+set nowritebackup
