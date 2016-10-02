@@ -59,6 +59,10 @@ alias vi='vim'
 export MYVIMRC=~/.vimrc
 export VISUAL=vi
 export EDITOR="$VISUAL"
+
+# also, enter sudo update-alternatives --config editor
+# for visudo and some others
+
 # Swap CapsLock and Esc
 # =====================
 /usr/bin/setxkbmap -option "caps:swapescape"

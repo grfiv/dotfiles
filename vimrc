@@ -135,3 +135,4 @@ set cursorline
 " switch off automatic creation of ~ backup files
 set nobackup
 set nowritebackup
+set noundofile
