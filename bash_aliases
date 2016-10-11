@@ -1,6 +1,6 @@
 function addToPATH {
     #
-    # add to $PATH environment variable, 
+    # add to $PATH environment variable,
     # ensuring no duplications
     #
     # usage: addToPATH ~/.local/lib/npm/bin
@@ -19,7 +19,7 @@ export PYTHONPATH=$PYTHONPATH:/home/george/Dropbox/Python
 
 # for virtualenvwrapper
 #     -----------------
-# sudo -H pip install virtualenvwrapper
+# sudo -H pip3 install virtualenvwrapper
 
 # location of virtual environments
 export WORKON_HOME=$HOME/.virtualenvs
@@ -143,8 +143,8 @@ xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Finger" 50 80 257
 # 6 - Cyan
 # 7 - White
 
-# $(tput setaf 2)             produces a light green 
-# $(tput bold)$(tput setaf 2) produces a bright green 
+# $(tput setaf 2)             produces a light green
+# $(tput bold)$(tput setaf 2) produces a bright green
 
 export PS1_ORIGINAL=$PS1
 
@@ -160,7 +160,7 @@ export PS1='${debian_chroot:+($debian_chroot)}\[$BrightGreen\]\u@\h\[\033[00m\]:
 #export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # For Ubuntu Desktop 16.04: yellow command prompt
-#export PS1=$(echo $PS1_ORIGINAL | sed -e 's/01;32/01;33/g')" " 
+#export PS1=$(echo $PS1_ORIGINAL | sed -e 's/01;32/01;33/g')" "
 
 # For Centos 7: red command prompt
 #export PS1="\e[0:31m$(echo $PS1)\e[m "
