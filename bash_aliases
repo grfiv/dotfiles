@@ -17,7 +17,44 @@ function addToPATH {
 #export PYTHONSTARTUP=/home/george/Dropbox/Python/python_startup.py
 export PYTHONPATH=$PYTHONPATH:/home/george/Dropbox/Python
 
+# for virtualenvwrapper
+#     -----------------
+# sudo -H pip install virtualenvwrapper
+
+# location of virtual environments
+export WORKON_HOME=$HOME/.virtualenvs
+
+# default location of python development projects
+export PROJECT_HOME=~/Dropbox/python_dev
+
+source /usr/local/bin/virtualenvwrapper.sh
+
+# I. Create a virtual environment for
+#    a python project in an arbitrary /path/to/<proj-name>
+
+# create a new virtual environment
+# mkvirtualenv <proj-name>
+
+# [optionally] create /path/to/<proj-name>
+# mkdir /path/to/<proj-name>
+
+# connect the two
+# cd /path/to/<proj-name>
+# setvirtualenvproject
+
+# II. Create a virtual environment for
+#     a new project in $PROJECT_HOME
+# mkproject <proj-name>
+
+#  get out of development mode
+# deactivate
+
+#  start working on the project again
+# workon <name>
+
+
 # for the MNIST handwritten digits
+# --------------------------------
 export MNIST=/home/george/Dropbox/MNIST/data
 
 # for hyperopt
