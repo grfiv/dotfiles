@@ -18,7 +18,7 @@ olddir=~/dotfiles_old             # old dotfiles backup directory
 
 # list of files/folders to symlink to from $HOME
 # ========================================================================================
-files="bash_aliases tmux.conf vimrc gitconfig bash_functions.sh gitignore_global pylintrc"
+#files="bash_aliases tmux.conf vimrc gitconfig bash_functions.sh gitignore_global pylintrc"
 # ========================================================================================
 
 # create $olddir if it does not already exist
@@ -50,11 +50,17 @@ sed -i "s#.*excludesfile.*#\texcludesfile = $HOME/.gitignore_global#"  ~/dotfile
 
 # create symlinks to dotfiles directory
 # =====================================
-echo -e "\nCreating symlinks in $HOME & /root to dot files in $dir"
-for file in $files; do
-    ln -s $dir/$file ~/.$file
-    sudo ln -s $dir/$file /root/.$file
+echo -e "\nCreating symlinks in $HOME & /root to dot files in $dir/dot_files"
+for dot_file in $dir/dot_files/*
+do
+    dot_file_filename=$(basename $dot_file)
+    ln -s      $dot_file $HOME/.$dot_file_filename
+    sudo ln -s $dot_file /root/.$dot_file_filename
 done
+
+ln -s      $dir/bash_functions.sh $HOME/.bash_functions.sh
+sudo ln -s $dir/bash_functions.sh /root/.bash_functions.sh
+
 echo -e "\nsymlink contents of $HOME"
 ls -AlF ~ | grep ^l
 pause
@@ -69,26 +75,39 @@ echo -e "\nsource .bashrc to load new features"
 source ~/.bashrc
 pause
 
+
+# if exists ~/.bin, it's added to PATH by ~/.profile
+# ==================================================
+[[ -d $HOME/bin ]] || mkdir $HOME/bin
+[[ -d /root/bin ]] || sudo mkdir /root/bin
+
+# sym links from ~/.bin to ~/dotfiles/bin_files/*
+# ===============================================
+echo -e "\nCreating symlinks in $HOME/bin & /root/bin to *.sh files in $dir/bin_files"
+for bin_file in $dir/bin_files/*
+do
+    bin_file_filename=$(basename $bin_file)
+    ln -s      $bin_file $HOME/bin/$bin_file_filename
+    sudo ln -s $bin_file /root/bin/$bin_file_filename
+done
+
+echo -e "\nsymlink contents of $HOME/bin"
+ls -AlF ~/bin | grep ^l
+pause
+
+echo -e "\nsymlink contents of /root/bin"
+sudo ls -AlF /root/bin | grep ^l
+pause
+
+
+# program installation
+# ====================
+
 echo -e "\ninstall programs if missing"
 
 # what type of system are we running on?
 python -mplatform | grep -qi ubuntu;ubuntu=$?
 python -mplatform | grep -qi centos;centos=$?
-
-# if exists ~/.bin, it's added to PATH by ~/.profile
-# ==================================================
-[[ -d $HOME/bin ]] || mkdir $HOME/bin
-
-# sym links from ~/.bin to ~/dotfiles/bin_files/*
-for bin_file in $dir/bin_files/*
-do
-    bin_file_filename=$(basename $bin_file)
-    ln -s $bin_file $HOME/bin/$bin_file_filename
-done
-
-
-# program installation
-# ====================
 
 # install tmux if needed
 if [ ! -f /usr/bin/tmux ]; then
