@@ -21,7 +21,6 @@ olddir=~/dotfiles_old             # old dotfiles backup directory
 files="bash_aliases tmux.conf vimrc gitconfig bash_functions.sh gitignore_global pylintrc"
 # ========================================================================================
 
-
 # create $olddir if it does not already exist
 # ===========================================
 if [ ! -d "$olddir" ]; then
@@ -76,6 +75,20 @@ echo -e "\ninstall programs if missing"
 python -mplatform | grep -qi ubuntu;ubuntu=$?
 python -mplatform | grep -qi centos;centos=$?
 
+# if exists ~/.bin, it's added to PATH by ~/.profile
+# ==================================================
+[[ -d $HOME/bin ]] || mkdir $HOME/bin
+
+# sym links from ~/.bin to ~/dotfiles/bin_files/*
+for bin_file in $dir/bin_files/*
+do
+    bin_file_filename=$(basename $bin_file)
+    ln -s $bin_file $HOME/bin/$bin_file_filename
+done
+
+
+# program installation
+# ====================
 
 # install tmux if needed
 if [ ! -f /usr/bin/tmux ]; then
