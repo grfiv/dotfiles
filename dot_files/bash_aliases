@@ -17,6 +17,9 @@ function addToPATH {
 #export PYTHONSTARTUP=/home/george/Dropbox/Python/python_startup.py
 export PYTHONPATH=$PYTHONPATH:/home/george/Dropbox/Python
 
+# make python 3 the default
+alias python=python3
+
 # for virtualenvwrapper
 #     -----------------
 # sudo -H pip3 install virtualenvwrapper
