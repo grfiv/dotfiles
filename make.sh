@@ -42,7 +42,7 @@ pause
 
 # change the gitconfig file to reflect current $HOME
 # ==================================================
-sed -i "s#.*excludesfile.*#\texcludesfile = $HOME/.gitignore_global#"  ~/dotfiles/gitconfig
+sed -i "s#.*excludesfile.*#\texcludesfile = $HOME/.gitignore_global#"  ~/dotfiles/dot_files/gitconfig
 
 
 # create symlinks from ~/ to ~/dotfiles/dot_files/*
@@ -55,8 +55,8 @@ do
     sudo ln -s $dot_file /root/.$dot_file_filename
 done
 
-ln -s      $dir/bash_functions.sh $HOME/.bash_functions.sh
-sudo ln -s $dir/bash_functions.sh /root/.bash_functions.sh
+#ln -s      $dir/bash_functions.sh $HOME/.bash_functions.sh
+#sudo ln -s $dir/bash_functions.sh /root/.bash_functions.sh
 
 echo -e "\nsymlink contents of $HOME"
 ls -AlF ~ | grep ^l
@@ -70,6 +70,19 @@ pause
 # =====================
 echo -e "\nsource .bashrc to load new features"
 source ~/.bashrc
+pause
+
+# create symlinks from ~/Templates to ~/dotfiles/template_files/*
+# ===============================================================
+echo -e "\nCreating symlinks in $HOME/Templates to $dir/template_files"
+for template_file in $dir/template_files/*
+do
+    template_file_filename=$(basename $template_file)
+    ln -s $template_file $HOME/Templates/$template_file_filename
+done
+
+echo -e "\nsymlink contents of $HOME/Templates"
+ls -AlF ~/Templates | grep ^l
 pause
 
 
