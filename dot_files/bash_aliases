@@ -30,6 +30,9 @@ export WORKON_HOME=$HOME/.virtualenvs
 # default location of python development projects
 export PROJECT_HOME=~/Dropbox/python_dev
 
+# default python interpreter for virtualenvwrapper
+VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+
 source /usr/local/bin/virtualenvwrapper.sh
 
 # I. Create a virtual environment for
