@@ -1,8 +1,10 @@
 #!/bin/bash
 ##########################################
 # make.sh
-# This script creates symlinks from $HOME
-# to dotfiles in ~/dotfiles
+# This script creates symlinks
+# from $HOME     to ~/dotfiles/dot_files
+# and
+# from $HOME/bin to ~/dotfiles/bin_files
 ##########################################
 
 function pause() {
@@ -15,11 +17,6 @@ function pause() {
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-
-# list of files/folders to symlink to from $HOME
-# ========================================================================================
-#files="bash_aliases tmux.conf vimrc gitconfig bash_functions.sh gitignore_global pylintrc"
-# ========================================================================================
 
 # create $olddir if it does not already exist
 # ===========================================
@@ -48,8 +45,8 @@ pause
 sed -i "s#.*excludesfile.*#\texcludesfile = $HOME/.gitignore_global#"  ~/dotfiles/gitconfig
 
 
-# create symlinks to dotfiles directory
-# =====================================
+# create symlinks from ~/ to ~/dotfiles/dot_files/*
+# =================================================
 echo -e "\nCreating symlinks in $HOME & /root to dot files in $dir/dot_files"
 for dot_file in $dir/dot_files/*
 do
@@ -78,11 +75,12 @@ pause
 
 # if exists ~/.bin, it's added to PATH by ~/.profile
 # ==================================================
+# if not exists, create
 [[ -d $HOME/bin ]] || mkdir $HOME/bin
 [[ -d /root/bin ]] || sudo mkdir /root/bin
 
-# sym links from ~/.bin to ~/dotfiles/bin_files/*
-# ===============================================
+# create symlinks from ~/bin to ~/dotfiles/bin_files/*
+# ====================================================
 echo -e "\nCreating symlinks in $HOME/bin & /root/bin to *.sh files in $dir/bin_files"
 for bin_file in $dir/bin_files/*
 do
