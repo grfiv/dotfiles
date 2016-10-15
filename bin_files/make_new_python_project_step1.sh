@@ -15,25 +15,22 @@
 # Step 2 sets up module folders plus docs/ and test/, and sets up sphinx
 #
 
-
 echo -ne "\nEnter python_dev project name (folder name) "
 read projname
 echo ~/Dropbox/python_dev/$projname
 
-rm -rf ~/Dropbox/python_dev/$projname
-
-echo -e "\n to remove the virtual environment enter rmvirtualenv $projname\n"
+rm -rf ~/Dropbox/python_dev/$projname 2> /dev/null
 
 # create the project and virtual environment
-#source /usr/local/bin/virtualenvwrapper.sh
+# ==========================================
+# location of virtual environments
+export WORKON_HOME=$HOME/.virtualenvs
+# default location of python development projects
+export PROJECT_HOME=~/Dropbox/python_dev
+# default python interpreter for virtualenvwrapper
+export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3.5'
+source /usr/local/bin/virtualenvwrapper.sh
+rmvirtualenv $projname       2> /dev/null
+mkproject $projname
 
-echo -e "The following commands should be entered in a new terminal\n"
-
-echo -e "rmvirtualenv $projname"
-pause
-
-echo -e "mkproject $projname"
-pause
-
-echo -e "\n\nenter 'workon $projname' and run '../make_new_python_project_step2.sh'"
-
+echo -e "\n\nenter 'workon $projname' and run 'make_new_python_project_step2.sh'"
