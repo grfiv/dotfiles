@@ -18,18 +18,22 @@
 
 echo -ne "\nEnter python_dev project name (folder name) "
 read projname
-echo $projname
+echo ~/Dropbox/python_dev/$projname
 
-rm -rf $projname
+rm -rf ~/Dropbox/python_dev/$projname
 
 echo -e "\n to remove the virtual environment enter rmvirtualenv $projname\n"
 
 # create the project and virtual environment
-source /usr/local/bin/virtualenvwrapper.sh
+#source /usr/local/bin/virtualenvwrapper.sh
 
-rmvirtualenv $projname
+echo -e "The following commands should be entered in a new terminal\n"
 
-mkproject $projname
+echo -e "rmvirtualenv $projname"
+pause
+
+echo -e "mkproject $projname"
+pause
 
 echo -e "\n\nenter 'workon $projname' and run '../make_new_python_project_step2.sh'"
 
