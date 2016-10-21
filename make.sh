@@ -74,16 +74,18 @@ pause
 
 # create symlinks from ~/Templates to ~/dotfiles/template_files/*
 # ===============================================================
-echo -e "\nCreating symlinks in $HOME/Templates to $dir/template_files"
-for template_file in $dir/template_files/*
-do
-    template_file_filename=$(basename $template_file)
-    ln -s $template_file $HOME/Templates/$template_file_filename
-done
+if [ -d "$HOME/Templates" ]; then
+    echo -e "\nCreating symlinks in $HOME/Templates to $dir/template_files"
+    for template_file in $dir/template_files/*
+    do
+        template_file_filename=$(basename $template_file)
+        ln -s $template_file $HOME/Templates/$template_file_filename
+    done
 
-echo -e "\nsymlink contents of $HOME/Templates"
-ls -AlF ~/Templates | grep ^l
-pause
+    echo -e "\nsymlink contents of $HOME/Templates"
+    ls -AlF ~/Templates | grep ^l
+    pause
+fi
 
 
 # if exists ~/.bin, it's added to PATH by ~/.profile
