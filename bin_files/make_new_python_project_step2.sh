@@ -38,7 +38,7 @@ mkdir test
 mkdir docs
 
 
-pip3 install sphinx
+pip3 install sphinx > /dev/null
 
 cd docs
 sphinx-quickstart --sep --dot=_ --language=en --project=$projname -a "George Fisher" -v 1.0 \
@@ -47,7 +47,8 @@ sphinx-quickstart --sep --dot=_ --language=en --project=$projname -a "George Fis
 find . -iname conf.py -exec sed -i "s/# import os/import os/g" {} \;
 find . -iname conf.py -exec sed -i "s/# import sys/import sys/g" {} \;
 find . -iname conf.py -exec sed -i "s?# sys.path.insert(0, os.path.abspath('.'))?sys.path.insert(0, os.path.abspath('../..'))?g" {} \;
+find . -iname conf.py -exec sed -i "s?#sys.path.insert(0, os.path.abspath('.'))?sys.path.insert(0, os.path.abspath('../..'))?g" {} \;
 
-cd docs
+#cd docs
 sphinx-apidoc -f -o source/ ../$projname/
 
