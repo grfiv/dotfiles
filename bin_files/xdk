@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# start Intel's XDK mobile app development IDE
+
+if [[ -f ~/intel/XDK/xdk.sh ]]; then
+    sudo ~/intel/XDK/xdk.sh&
+elif [[ -f /opt/intel/XDK/xdk.sh ]]; then
+    sudo /opt/intel/XDK/xdk.sh&
+else
+    echo "Intel XDK installation not found; see the website about to open"
+    open_url https://software.intel.com/en-us/intel-xdk
+    pause
+fi
