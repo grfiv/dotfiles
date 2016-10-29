@@ -20,6 +20,9 @@ export PYTHONPATH=$PYTHONPATH:/home/george/Dropbox/Python
 # make python 3 the default
 alias python=python3
 
+# enable pip autocomplete
+#pip completion --bash
+
 # for virtualenvwrapper
 #     -----------------
 # sudo -H pip3 install virtualenvwrapper
