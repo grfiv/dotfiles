@@ -135,8 +135,8 @@ export EDITOR="$VISUAL"
 # and http://askubuntu.com/questions/483707/14-04-touchpad-is-too-sensitive
 #xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Noise Cancellation" 20 20
 #xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Finger" 50 80 257
-xinput --set-prop 12 "Synaptics Noise Cancellation" 20 20
-xinput --set-prop 12 "Synaptics Finger" 50 80 257
+#xinput --set-prop 12 "Synaptics Noise Cancellation" 20 20
+#xinput --set-prop 12 "Synaptics Finger" 50 80 257
 
 # ======================================
 # Modify the color of the command prompt
