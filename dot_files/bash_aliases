@@ -102,6 +102,11 @@ alias ticker='mop'  # note: there is a program called ticker which you may need 
 alias ls='ls --color=auto -F'
 alias ll='ls -alFh'            # make ll human readable
 
+# ============================
+# change the columns for lsblk
+# ============================
+alias lsblk="lsblk -o NAME,MAJ:MIN,SIZE,TYPE,MOUNTPOINT,FSTYPE"
+
 # ===========================================================
 # open image files from the command line with 'image xxx.png'
 # ===========================================================
