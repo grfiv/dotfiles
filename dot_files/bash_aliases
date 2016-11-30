@@ -33,7 +33,9 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=~/Dropbox/python_dev
 # default python interpreter for virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3.5'
-source /usr/local/bin/virtualenvwrapper.sh
+
+# BETTER TO USER DOCKER THAN virtualenv
+#source /usr/local/bin/virtualenvwrapper.sh
 
 # I. Create a virtual environment for
 #    a python project in an arbitrary /path/to/<proj-name>
