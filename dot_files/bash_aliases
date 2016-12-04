@@ -11,6 +11,15 @@ function addToPATH {
   esac
 }
 
+#
+# ==============
+# docker aliases
+# =============
+#
+alias docker_rstudio='docker run --rm -p 8787:8787 -v /home/george/Dropbox/:/home/rstudio/Dropbox grfiv/rstudio'
+alias docker_jupyter='docker run --rm -p 8888:8888 -v /home/george/Dropbox/:/home/jovyan/work/Dropbox grfiv/jupyter'
+
+
 # ==========
 # for python
 # ==========
