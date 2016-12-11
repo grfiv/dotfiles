@@ -23,7 +23,6 @@ olddir=~/dotfiles_old             # old dotfiles backup directory
 if [ ! -d "$olddir" ]; then
       echo "Creating $olddir for backup of any existing dotfiles in $HOME"
       mkdir -p $olddir
-      pause
 fi
 
 # backup existing dot files
@@ -37,7 +36,6 @@ for file in $files; do
 done
 echo -e "contents of $olddir"
 ls -AlF $olddir
-pause
 
 
 # change the gitconfig file to reflect current $HOME
@@ -60,17 +58,14 @@ done
 
 echo -e "\nsymlink contents of $HOME"
 ls -AlF ~ | grep ^l
-pause
 
 echo -e "\nsymlink contents of /root"
 sudo ls -AlF /root | grep ^l
-pause
 
 # load the new features
 # =====================
 echo -e "\nsource .bashrc to load new features"
 source ~/.bashrc
-pause
 
 # create symlinks from ~/Templates to ~/dotfiles/template_files/*
 # ===============================================================
@@ -84,7 +79,6 @@ if [ -d "$HOME/Templates" ]; then
 
     echo -e "\nsymlink contents of $HOME/Templates"
     ls -AlF ~/Templates | grep ^l
-    pause
 fi
 
 
@@ -106,11 +100,9 @@ done
 
 echo -e "\nsymlink contents of $HOME/bin"
 ls -AlF ~/bin | grep ^l
-pause
 
 echo -e "\nsymlink contents of /root/bin"
 sudo ls -AlF /root/bin | grep ^l
-pause
 
 
 # program installation
