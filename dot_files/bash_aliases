@@ -25,26 +25,34 @@ alias docker_cloudera='docker run --rm --hostname=quickstart.cloudera --privileg
 # kaggle contest aliases
 # ======================
 #
-kp_cd() {
-    cd /home/george/Dropbox/
-}
-export -f kp_cd
-
+kpy_dir="/home/george/Dropbox/kaggle/TwoSigmaFinancialModelingChallenge/"
 kpython(){
-  kp_cd
-  docker run -v $PWD:/tmp/working -w=/tmp/working --rm -it kaggle/python python "$@"
+    if [ $# -eq 0 ]; then
+        cd $kpy_dir
+    else
+        cd $1
+    fi
+    docker run -v $PWD:/tmp/working -w=/tmp/working --rm -it kaggle/python python "$@"
 }
 export -f kpython
 
 ikpython() {
-  kp_cd
-  docker run -v $PWD:/tmp/working -w=/tmp/working --rm -it kaggle/python ipython
+  if [ $# -eq 0 ]; then
+        cd $kpy_dir
+    else
+        cd $1
+    fi
+    docker run -v $PWD:/tmp/working -w=/tmp/working --rm -it kaggle/python ipython
 }
 export -f ikpython
 
 kjupyter() {
-  kp_cd
-  docker run -v $PWD:/tmp/working -w=/tmp/working -p 8888:8888 --rm -it kaggle/python jupyter notebook --no-browser --ip="0.0.0.0" --notebook-dir=/tmp/working
+  if [ $# -eq 0 ]; then
+        cd $kpy_dir
+    else
+        cd $1
+    fi
+    docker run -v $PWD:/tmp/working -w=/tmp/working -p 8888:8888 --rm -it kaggle/python jupyter notebook --no-browser --ip="0.0.0.0" --notebook-dir=/tmp/working
 }
 export -f kjupyter
 
@@ -68,12 +76,13 @@ alias python=python3
 # sudo -H pip3 install virtualenvwrapper
 
 # location of virtual environments
-#export WORKON_HOME=$HOME/.virtualenvs
+export WORKON_HOME=$HOME/.virtualenvs
 # default location of python development projects
-#export PROJECT_HOME=~/Dropbox/python_dev
+export PROJECT_HOME=~/Dropbox/python_dev
 # default python interpreter for virtualenvwrapper
-#export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3.5'
+export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3.5'
 
+# BETTER TO USER DOCKER THAN virtualenv
 #source /usr/local/bin/virtualenvwrapper.sh
 
 # I. Create a virtual environment for
