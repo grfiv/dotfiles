@@ -19,6 +19,8 @@ function addToPATH {
 alias docker_rstudio='docker run --rm -p 8787:8787 -v /home/george/Dropbox/:/home/rstudio/Dropbox grfiv/rstudio'
 alias docker_jupyter='docker run --rm -p 8888:8888 -v /home/george/Dropbox/:/home/jovyan/work/Dropbox grfiv/jupyter'
 alias docker_cloudera='docker run --rm --hostname=quickstart.cloudera --privileged=true -t -i -p 8888:8888 -p 7180:7180 -p 8080:80 cloudera/quickstart:latest /usr/bin/docker-quickstart'
+alias docker_kaggle='docker run -it  -p 8888:8888 -v $(pwd):/wd kagglegym jupyter notebook --port=8888 --ip=0.0.0.0'
+
 
 #
 # ======================
