@@ -81,6 +81,9 @@ alias python=python3
 # ==================================================================
 alias pyspark="PYSPARK_PYTHON=ipython ~/spark-2.1.1-bin-hadoop2.7/bin/pyspark"
 alias pysparknotebook="PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS='notebook' ~/spark-2.1.1-bin-hadoop2.7/bin/pyspark"
+
+export PYSPARK_PYTHON=/usr/bin/python3
+export PYSPARK_DRIVER_PYTHON=python3
 #
 # create spark context in jupyter notebook
 # ----------------------------------------
