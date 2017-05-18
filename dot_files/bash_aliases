@@ -79,11 +79,9 @@ alias python=python3
 # ==================================================================
 # use IPython as the Spark Python shell and start a jupyter notebook
 # ==================================================================
-alias pyspark="PYSPARK_PYTHON=/usr/local/bin/ipython; PYSPARK_DRIVER_PYTHON=ipython; ~/spark-2.1.1-bin-hadoop2.7/bin/pyspark"
+alias pyspark="PYSPARK_PYTHON=/usr/local/bin/python3 PYSPARK_DRIVER_PYTHON=ipython ~/spark-2.1.1-bin-hadoop2.7/bin/pyspark"
 alias pysparknotebook="PYSPARK_PYTHON=/usr/bin/python3 PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS='notebook' ~/spark-2.1.1-bin-hadoop2.7/bin/pyspark"
 
-#export PYSPARK_PYTHON=/usr/bin/python3
-#export PYSPARK_DRIVER_PYTHON=python3
 #
 # create spark context in jupyter notebook
 # ----------------------------------------
