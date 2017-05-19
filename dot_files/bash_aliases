@@ -81,7 +81,6 @@ alias python=python3
 # ==================================================================
 alias pyspark="PYSPARK_PYTHON=/usr/local/bin/python3 PYSPARK_DRIVER_PYTHON=ipython ~/spark-2.1.1-bin-hadoop2.7/bin/pyspark"
 alias pysparknotebook="PYSPARK_PYTHON=/usr/bin/python3 PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS='notebook' ~/spark-2.1.1-bin-hadoop2.7/bin/pyspark"
-
 #
 # create spark context in jupyter notebook
 # ----------------------------------------
@@ -89,11 +88,15 @@ alias pysparknotebook="PYSPARK_PYTHON=/usr/bin/python3 PYSPARK_DRIVER_PYTHON=jup
 # sc = SparkContext.getOrCreate()
 # ----------------------------------------
 #
+export PYTHONPATH=$PYTHONPATH:/home/george/spark-2.1.1-bin-hadoop2.7/python/
+export SPARK_HOME=/home/george/spark-2.1.1-bin-hadoop2.7
 
 # enable pip autocomplete
 #pip completion --bash
 
+# =====================================
 # BETTER TO USER DOCKER THAN virtualenv
+# =====================================
 
 # for virtualenvwrapper
 #     -----------------
