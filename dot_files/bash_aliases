@@ -79,8 +79,8 @@ alias python=python3
 # ==================================================================
 # use IPython as the Spark Python shell and start a jupyter notebook
 # ==================================================================
-alias pyspark="PYSPARK_PYTHON=/usr/local/bin/python3 PYSPARK_DRIVER_PYTHON=ipython ~/spark-2.1.1-bin-hadoop2.7/bin/pyspark"
-alias pysparknotebook="PYSPARK_PYTHON=/usr/bin/python3 PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS='notebook' ~/spark-2.1.1-bin-hadoop2.7/bin/pyspark"
+alias pyspark="PYSPARK_PYTHON=/usr/local/bin/python3 PYSPARK_DRIVER_PYTHON=ipython ~/spark-2.1.1-bin-hadoop2.7/bin/pyspark --packages graphframes:graphframes:0.5.0-spark2.1-s_2.11"
+alias pysparknotebook="PYSPARK_PYTHON=/usr/bin/python3 PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS='notebook' ~/spark-2.1.1-bin-hadoop2.7/bin/pyspark --packages graphframes:graphframes:0.5.0-spark2.1-s_2.11"
 #
 # create spark context in jupyter notebook
 # ----------------------------------------
@@ -88,8 +88,8 @@ alias pysparknotebook="PYSPARK_PYTHON=/usr/bin/python3 PYSPARK_DRIVER_PYTHON=jup
 # sc = SparkContext.getOrCreate()
 # ----------------------------------------
 #
-export PYTHONPATH=$PYTHONPATH:/home/george/spark-2.1.1-bin-hadoop2.7/python/
-export SPARK_HOME=/home/george/spark-2.1.1-bin-hadoop2.7
+export PYTHONPATH=$PYTHONPATH:~/spark-2.1.1-bin-hadoop2.7/python/
+export SPARK_HOME=~/spark-2.1.1-bin-hadoop2.7
 
 # enable pip autocomplete
 #pip completion --bash
@@ -109,7 +109,6 @@ export PROJECT_HOME=~/Dropbox/python_dev
 # default python interpreter for virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3.5'
 
-# BETTER TO USER DOCKER THAN virtualenv
 #source /usr/local/bin/virtualenvwrapper.sh
 
 # I. Create a virtual environment for
