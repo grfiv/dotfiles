@@ -73,23 +73,33 @@ export -f kjupyter
 export PYTHONPATH=$PYTHONPATH:/home/george/Dropbox/Python
 export PYTHONPATH=$PYTHONPATH:/home/george/xgboost/python-package
 
+# save nltk data in Dropbox
+# =========================
+export NLTK_DATA=~/Dropbox/nltk_data
+
 # make python 3 the default
+# =========================
 alias python=python3
 
 # ==================================================================
 # use IPython as the Spark Python shell and start a jupyter notebook
 # ==================================================================
-alias pyspark="PYSPARK_PYTHON=/usr/local/bin/python3 PYSPARK_DRIVER_PYTHON=ipython ~/spark-2.1.1-bin-hadoop2.7/bin/pyspark --packages graphframes:graphframes:0.5.0-spark2.1-s_2.11"
-alias pysparknotebook="PYSPARK_PYTHON=/usr/bin/python3 PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS='notebook' ~/spark-2.1.1-bin-hadoop2.7/bin/pyspark --packages graphframes:graphframes:0.5.0-spark2.1-s_2.11"
+export SPARK_HOME=~/spark-2.1.1-bin-hadoop2.7
+
+export PYTHONPATH=$PYTHONPATH:$SPARK_HOME/python/
+
+alias pyspark="PYSPARK_PYTHON=/usr/local/bin/python3 PYSPARK_DRIVER_PYTHON=ipython $SPARK_HOME/bin/pyspark --packages graphframes:graphframes:0.5.0-spark2.1-s_2.11"
+alias pysparknotebook="PYSPARK_PYTHON=/usr/bin/python3 PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS='notebook' $SPARK_HOME/bin/pyspark --packages graphframes:graphframes:0.5.0-spark2.1-s_2.11"
 #
 # create spark context in jupyter notebook
-# ----------------------------------------
+# --------------------------------------------
 # from pyspark.context import SparkContext
-# sc = SparkContext.getOrCreate()
-# ----------------------------------------
+# from pyspark.sql     import SQLContext, Row
 #
-export PYTHONPATH=$PYTHONPATH:~/spark-2.1.1-bin-hadoop2.7/python/
-export SPARK_HOME=~/spark-2.1.1-bin-hadoop2.7
+# sc         = SparkContext.getOrCreate()
+# sqlContext = SQLContext(sc)
+# --------------------------------------------
+#
 
 # enable pip autocomplete
 #pip completion --bash
