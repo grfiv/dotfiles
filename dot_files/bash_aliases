@@ -92,13 +92,13 @@ alias pyspark="PYSPARK_PYTHON=/usr/local/bin/python3 PYSPARK_DRIVER_PYTHON=ipyth
 alias pysparknotebook="PYSPARK_PYTHON=/usr/bin/python3 PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS='notebook' $SPARK_HOME/bin/pyspark --packages graphframes:graphframes:0.5.0-spark2.1-s_2.11"
 #
 # create spark context in jupyter notebook
-# --------------------------------------------
+# ------------------------------------------------
 # from pyspark.context import SparkContext
-# from pyspark.sql     import SQLContext, Row
+# from pyspark.sql     import SparkSession, Row
 #
 # sc         = SparkContext.getOrCreate()
-# sqlContext = SQLContext(sc)
-# --------------------------------------------
+# sqlContext = SparkSession.builder.getOrCreate()
+# -----------------------------------------------
 #
 
 # enable pip autocomplete
