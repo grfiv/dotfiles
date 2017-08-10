@@ -84,13 +84,13 @@ alias python=python3
 # ==================================================================
 # use IPython as the Spark Python shell and start a jupyter notebook
 # ==================================================================
-export SPARK_HOME=~/spark-2.1.1-bin-hadoop2.7
+export SPARK_HOME=~/spark-2.2.0-bin-hadoop2.7
 export SCALA_HOME=/usr/share/scala
 
 export PYTHONPATH=$PYTHONPATH:$SPARK_HOME/python/
 
-alias pyspark="PYSPARK_PYTHON=/usr/local/bin/python3 PYSPARK_DRIVER_PYTHON=ipython $SPARK_HOME/bin/pyspark --packages graphframes:graphframes:0.5.0-spark2.1-s_2.11"
-alias pysparknotebook="PYSPARK_PYTHON=/usr/bin/python3 PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS='notebook' $SPARK_HOME/bin/pyspark --packages graphframes:graphframes:0.5.0-spark2.1-s_2.11"
+alias pyspark="PYSPARK_PYTHON=/usr/local/bin/python3 PYSPARK_DRIVER_PYTHON=ipython $SPARK_HOME/bin/pyspark" # --packages graphframes:graphframes:0.5.0-spark2.1-s_2.11"
+alias pysparknotebook="PYSPARK_PYTHON=/usr/bin/python3 PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS='notebook' $SPARK_HOME/bin/pyspark" # --packages graphframes:graphframes:0.5.0-spark2.1-s_2.11"
 #
 # create spark context in jupyter notebook
 # ------------------------------------------------
