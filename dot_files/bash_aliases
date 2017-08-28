@@ -86,6 +86,7 @@ alias python=python3
 # ==================================================================
 export SPARK_HOME=~/spark-2.2.0-bin-hadoop2.7
 export SCALA_HOME=/usr/share/scala
+export PATH=$PATH:$SCALA_HOME/bin
 
 export PYTHONPATH=$PYTHONPATH:$SPARK_HOME/python/
 
