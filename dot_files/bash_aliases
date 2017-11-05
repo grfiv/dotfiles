@@ -291,3 +291,9 @@ export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 
 alias jupyter="jupyter notebook --no-browser --ip='0.0.0.0'"
 alias jupyter="jupyter notebook --no-browser --ip='0.0.0.0'"
+
+
+# added by Anaconda3 installer
+export PATH="/home/george/anaconda3/bin:$PATH"
+
+
